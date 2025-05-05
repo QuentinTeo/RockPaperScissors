@@ -3,6 +3,21 @@
 
 <script>
     console.log("Hello World");
+
+    function getComputerChoice(){
+        let choice = Math.floor(Math.random() * 3);
+        if(choice == 0){
+            return "Rock";
+        }
+        if(choice == 1){
+            return "Paper"
+        }
+        if(choice == 2){
+            return "Scissors";
+        }  
+    }
+    console.log(getComputerChoice());
+
 </script>
 <head>
     <meta charset="UTF-8">
