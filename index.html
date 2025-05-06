@@ -4,8 +4,6 @@
 <script>
     console.log("Hello World");
 
-    let humanScore = 0;
-    let computerScore = 0;
 
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
@@ -30,24 +28,36 @@
         return input;
     }
 
-    function playRound(humanChoice, computerChoice){
+    
 
-        if(humanChoice.toLowerCase() == computerChoice.toLowerCase()){
-            
-            // draw
-            return "Draw";
-        }
-        if((humanChoice.toLowerCase() == "rock" && computerChoice.toLowerCase() == "paper") || (humanChoice.toLowerCase() == "paper" && computerChoice.toLowerCase() == "scissors") || (humanChoice.toLowerCase() == "scissors" && computerChoice.toLowerCase() == "rock")) {
-            // loss
-            computerScore++;
-            return "You lose! " + computerChoice + " beats " + humanChoice;
-        }
-        else if((humanChoice.toLowerCase() == "rock" && computerChoice.toLowerCase() == "scissors") || (humanChoice.toLowerCase() == "paper" && computerChoice.toLowerCase() == "rock") || (humanChoice.toLowerCase() == "scissors" && computerChoice.toLowerCase() == "paper")){
-            //win
-            humanScore++;
-            return "You win! " + humanChoice + " beats " + computerChoice;
+    function playGame(){
+        let humanScore = 0;
+        let computerScore = 0;
+
+        
+        for(int i = 0; i < 5; i++){
 
         }
+        // rounds fnction
+        function playRound(humanChoice, computerChoice){
+
+            if(humanChoice.toLowerCase() == computerChoice.toLowerCase()){
+    
+                // draw
+                return "Draw";
+            }
+            if((humanChoice.toLowerCase() == "rock" && computerChoice.toLowerCase() == "paper") || (humanChoice.toLowerCase() == "paper" && computerChoice.toLowerCase() == "scissors") || (humanChoice.toLowerCase() == "scissors" && computerChoice.toLowerCase() == "rock")) {
+                // loss
+                computerScore++;
+                return "You lose! " + computerChoice + " beats " + humanChoice;
+            }
+            else if((humanChoice.toLowerCase() == "rock" && computerChoice.toLowerCase() == "scissors") || (humanChoice.toLowerCase() == "paper" && computerChoice.toLowerCase() == "rock") || (humanChoice.toLowerCase() == "scissors" && computerChoice.toLowerCase() == "paper")){
+                //win
+                humanScore++;
+                return "You win! " + humanChoice + " beats " + computerChoice;
+
+}
+}
     }
 
     console.log(playRound(humanChoice, computerChoice));
