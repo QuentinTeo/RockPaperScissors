@@ -4,6 +4,7 @@
 <script>
     console.log("Hello World");
 
+
     function getComputerChoice(){
         let choice = Math.floor(Math.random() * 3);
         if(choice == 0){
@@ -16,8 +17,15 @@
             return "Scissors";
         }  
     }
-    console.log(getComputerChoice());
 
+
+    function getHumanChoice(){
+        let input = prompt("Rock, Paper, or Scissors?");
+        return input;
+    }
+
+    console.log(getComputerChoice());
+    console.log(getHumanChoice());
 </script>
 <head>
     <meta charset="UTF-8">
