@@ -5,8 +5,9 @@
     console.log("Hello World");
 
 
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
+    // const humanChoice = getHumanChoice();
+    // const computerChoice = getComputerChoice();
+    console.log(playGame());
 
 
     function getComputerChoice(){
@@ -35,9 +36,21 @@
         let computerScore = 0;
 
         
-        for(int i = 0; i < 5; i++){
+        for(let i = 0; i < 5; i++){
+            console.log("Round " + (i + 1));
+            console.log(playRound(getHumanChoice(), getComputerChoice()));
+            console.log("Score: " + humanScore + " Computer Score: " + computerScore);
 
         }
+
+        //winner announcement
+        if(humanScore > computerScore){
+            console.log("Human Wins");
+        }
+        else {
+            console.log("Computer Wins");
+        }
+
         // rounds fnction
         function playRound(humanChoice, computerChoice){
 
@@ -60,9 +73,9 @@
 }
     }
 
-    console.log(playRound(humanChoice, computerChoice));
-    console.log(humanScore);
-    console.log(computerScore);
+    // console.log(playRound(humanChoice, computerChoice));
+    // console.log(humanScore);
+    // console.log(computerScore);
 </script>
 <head>
     <meta charset="UTF-8">
