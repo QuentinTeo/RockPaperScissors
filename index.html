@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "paperButton" value = "Paper">Paper</button>
+    <button id = "rockButton" value = "Rock">Rock</button>
+    <button id = "scissorButton" value = "Scissors">Scissors</button>
+    <div></div>
+</body>
 <script>
     console.log("Hello World");
 
 
     // const humanChoice = getHumanChoice();
     // const computerChoice = getComputerChoice();
+
+
     console.log(playGame());
+
+    
+
+    
+
 
 
     function getComputerChoice(){
@@ -35,24 +54,49 @@
         let humanScore = 0;
         let computerScore = 0;
 
-        
-        for(let i = 0; i < 5; i++){
-            console.log("Round " + (i + 1));
-            console.log(playRound(getHumanChoice(), getComputerChoice()));
-            console.log("Score: " + humanScore + " Computer Score: " + computerScore);
+        const paper = document.querySelector("#paperButton");
+        const rock = document.querySelector("#rockButton");
+        const scissors = document.querySelector("#scissorButton");
 
-        }
+        paper.addEventListener("click",() => {
+            const input = paper.value;
+            console.log(input);
+            console.log(playRound(input, getComputerChoice()));
+        //add playround
+        });
+
+        rock.addEventListener("click", () => {
+            const input = rock.value;
+            console.log(input);
+            console.log(playRound(input, getComputerChoice()));
+        });
+
+        scissors.addEventListener("click", () => {
+            const input = scissors.value;
+            console.log(input);
+            console.log(playRound(input, getComputerChoice()));
+        })
+
+
+        
+        // for(let i = 0; i < 5; i++){
+        //     console.log("Round " + (i + 1));
+        //     console.log(playRound(getHumanChoice(), getComputerChoice()));
+        //     console.log("Score: " + humanScore + " Computer Score: " + computerScore);
+
+        // }
 
         //winner announcement
-        if(humanScore > computerScore){
-            console.log("Human Wins");
-        }
-        else {
-            console.log("Computer Wins");
-        }
+        // if(humanScore > computerScore){
+        //     console.log("Human Wins");
+        // }
+        // else {
+        //     console.log("Computer Wins");
+        // }
 
         // rounds fnction
         function playRound(humanChoice, computerChoice){
+
 
             if(humanChoice.toLowerCase() == computerChoice.toLowerCase()){
     
@@ -77,12 +121,4 @@
     // console.log(humanScore);
     // console.log(computerScore);
 </script>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
 </html>
