@@ -28,7 +28,6 @@
     playGame();
     
 
-    
 
 
 
@@ -61,9 +60,11 @@
 
         paper.addEventListener("click",() => {
             const input = paper.value;
-            console.log(input);
-            console.log(playRound(input, getComputerChoice()));
-        //add playround
+            // console.log(input);
+            // console.log(playRound(input, getComputerChoice()));
+            playRound(input, getComputerChoice());
+            //ok now need to add winning condition
+
             
         });
 
@@ -193,11 +194,13 @@
             if((humanChoice.toLowerCase() == "rock" && computerChoice.toLowerCase() == "paper") || (humanChoice.toLowerCase() == "paper" && computerChoice.toLowerCase() == "scissors") || (humanChoice.toLowerCase() == "scissors" && computerChoice.toLowerCase() == "rock")) {
                 // loss
                 computerScore++;
+                compResult.textContent = computerScore;
                 return "You lose! " + computerChoice + " beats " + humanChoice;
             }
             else if((humanChoice.toLowerCase() == "rock" && computerChoice.toLowerCase() == "scissors") || (humanChoice.toLowerCase() == "paper" && computerChoice.toLowerCase() == "rock") || (humanChoice.toLowerCase() == "scissors" && computerChoice.toLowerCase() == "paper")){
                 //win
                 humanScore++;
+                humanResult.textContent = humanScore;
                 return "You win! " + humanChoice + " beats " + computerChoice;
 
             }
