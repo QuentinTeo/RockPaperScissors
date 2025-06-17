@@ -11,18 +11,21 @@
     <button id = "paperButton" value = "Paper">Paper</button>
     <button id = "rockButton" value = "Rock">Rock</button>
     <button id = "scissorButton" value = "Scissors">Scissors</button>
-    <div></div>
+
+    <div class = "resultDisplay"></div>
 </body>
 <script>
     console.log("Hello World");
+
+    let humanScore = 0;
+    let computerScore = 0;
 
 
     // const humanChoice = getHumanChoice();
     // const computerChoice = getComputerChoice();
 
 
-    console.log(playGame());
-
+    playGame();
     
 
     
@@ -39,20 +42,18 @@
         }
         if(choice == 2){
             return "Scissors";
-        }  
+        } 
     }
 
 
-    function getHumanChoice(){
-        let input = prompt("Rock, Paper, or Scissors?");
-        return input;
-    }
+    // function getHumanChoice(){
+    //     let input = prompt("Rock, Paper, or Scissors?");
+    //     return input;
+    // }
 
     
 
     function playGame(){
-        let humanScore = 0;
-        let computerScore = 0;
 
         const paper = document.querySelector("#paperButton");
         const rock = document.querySelector("#rockButton");
@@ -63,6 +64,7 @@
             console.log(input);
             console.log(playRound(input, getComputerChoice()));
         //add playround
+            
         });
 
         rock.addEventListener("click", () => {
@@ -85,6 +87,91 @@
         //     console.log("Score: " + humanScore + " Computer Score: " + computerScore);
 
         // }
+
+        const resultDisplay = document.querySelector("div");
+        resultDisplay.style.backgroundColor = "pink";
+        resultDisplay.style.display = "flex";
+        resultDisplay.style.border = "thick solid black";
+        resultDisplay.style.padding = "30px";
+        resultDisplay.style.alignContent = "center";
+        resultDisplay.style.justifyContent = "center";
+        resultDisplay.style.flexDirection = "column";
+
+
+        const titleDisplay = document.createElement("div");
+        titleDisplay.style.alignSelf = "center";
+        titleDisplay.style.justifyContent = "center";
+        titleDisplay.textContent = "Results"
+
+
+
+
+        resultDisplay.appendChild(titleDisplay);
+
+        //Score section 
+        const scoreDisplay = document.createElement("div");
+        scoreDisplay.style.display = "flex";
+        scoreDisplay.style.alignItems = "center";
+        scoreDisplay.style.justifyContent = "center";
+
+
+        //Human score section
+        const humanSide = document.createElement("div");
+        humanSide.style.flexDirection = "column";
+        humanSide.style.alignContent = "center";
+        humanSide.style.justifyContent = "center";
+
+        const humanTitle = document.createElement("div");
+        humanTitle.style.display = "flex";
+        humanTitle.style.alignContent = "center";
+        humanTitle.style.justifyContent = "center";
+        humanTitle.textContent = "Human Score: "
+
+        const humanResult = document.createElement("div");
+        humanResult.style.display = "flex";
+        humanResult.style.border = "thick solid black";
+        humanResult.style.alignContent = "center";
+        humanResult.style.justifyContent = "center";
+        humanResult.textContent = humanScore;
+
+        humanSide.appendChild(humanTitle);
+        humanSide.appendChild(humanResult);
+
+        //Computer score section
+        const compSide = document.createElement("div");
+        compSide.style.flexDirection = "column";
+        compSide.style.alignContent = "center";
+
+        const compTitle = document.createElement("div");
+        compTitle.style.display = "flex";
+        compTitle.style.alignContent = "center";
+        compTitle.style.justifyContent = "center";
+        compTitle.textContent = "Computer Score: "
+        
+        const compResult = document.createElement("div");
+        compResult.style.display = "flex";
+        compResult.style.border = "thick solid black";
+        compResult.style.alignContent = "center";
+        compResult.style.justifyContent = "center";
+        compResult.textContent = computerScore;
+
+        compSide.appendChild(compTitle);
+        compSide.appendChild(compResult);
+
+        scoreDisplay.appendChild(humanSide);
+        scoreDisplay.appendChild(compSide);
+
+        resultDisplay.appendChild(scoreDisplay);
+
+
+
+
+
+        //create score board
+        //      YOU:  0                 ||              BOT:    0
+        //if player || computer .score === 5  =>  end game {annouce winner} 
+
+
 
         //winner announcement
         // if(humanScore > computerScore){
@@ -113,8 +200,8 @@
                 humanScore++;
                 return "You win! " + humanChoice + " beats " + computerChoice;
 
-}
-}
+            }
+        }
     }
 
     // console.log(playRound(humanChoice, computerChoice));
