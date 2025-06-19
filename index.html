@@ -63,31 +63,59 @@
             // console.log(input);
             // console.log(playRound(input, getComputerChoice()));
             playRound(input, getComputerChoice());
-            //ok now need to add winning condition
-
             
         });
 
         rock.addEventListener("click", () => {
             const input = rock.value;
-            console.log(input);
-            console.log(playRound(input, getComputerChoice()));
+            playRound(input, getComputerChoice());
         });
 
         scissors.addEventListener("click", () => {
             const input = scissors.value;
-            console.log(input);
-            console.log(playRound(input, getComputerChoice()));
+            playRound(input, getComputerChoice());
         })
 
-
+        console.log(humanScore);
         
+        if(humanScore == 5 || computerScore == 5){
+            if (humanScore > computerScore){
+                console.log("test");
+                alert("You are the winner!");
+            }
+            else {
+                alert("You are the loser!");
+            }
+        }
+
+        //create score board
+        //      YOU:  0                 ||              BOT:    0
+        //if player || computer .score === 5  =>  end game {annouce winner} 
+
+
+
         // for(let i = 0; i < 5; i++){
         //     console.log("Round " + (i + 1));
         //     console.log(playRound(getHumanChoice(), getComputerChoice()));
         //     console.log("Score: " + humanScore + " Computer Score: " + computerScore);
 
         // }
+
+        //ok now need to add winning condition
+
+            // (5 < humanscore) => msg(you win)
+
+        //winner announcement
+        // if(humanScore > computerScore){
+        //     console.log("Human Wins");
+        // }
+        // else {
+        //     console.log("Computer Wins");
+        // }
+
+
+
+        
 
         const resultDisplay = document.querySelector("div");
         resultDisplay.style.backgroundColor = "pink";
@@ -167,41 +195,42 @@
 
 
 
-
-        //create score board
-        //      YOU:  0                 ||              BOT:    0
-        //if player || computer .score === 5  =>  end game {annouce winner} 
-
-
-
-        //winner announcement
-        // if(humanScore > computerScore){
-        //     console.log("Human Wins");
-        // }
-        // else {
-        //     console.log("Computer Wins");
-        // }
-
+        
         // rounds fnction
         function playRound(humanChoice, computerChoice){
-
 
             if(humanChoice.toLowerCase() == computerChoice.toLowerCase()){
     
                 // draw
-                return "Draw";
+                alert("Draw");
+                // return "Draw";
             }
             if((humanChoice.toLowerCase() == "rock" && computerChoice.toLowerCase() == "paper") || (humanChoice.toLowerCase() == "paper" && computerChoice.toLowerCase() == "scissors") || (humanChoice.toLowerCase() == "scissors" && computerChoice.toLowerCase() == "rock")) {
                 // loss
                 computerScore++;
+                console.log(computerScore);
                 compResult.textContent = computerScore;
-                return "You lose! " + computerChoice + " beats " + humanChoice;
+                if(computerScore != 5 ){
+                    alert("You lose! " + computerChoice + " beats " + humanChoice);
+                }
+                else {
+                    alert("You Lose the game!");
+                }
+                
+                // return "You lose! " + computerChoice + " beats " + humanChoice;
             }
             else if((humanChoice.toLowerCase() == "rock" && computerChoice.toLowerCase() == "scissors") || (humanChoice.toLowerCase() == "paper" && computerChoice.toLowerCase() == "rock") || (humanChoice.toLowerCase() == "scissors" && computerChoice.toLowerCase() == "paper")){
                 //win
                 humanScore++;
+                console.log(humanScore);
                 humanResult.textContent = humanScore;
-                return "You win! " + humanChoice + " beats " + computerChoice;
+                if(humanScore != 5 ){
+                    alert("You win! " + humanChoice + " beats " + computerChoice);
+                }
+                else {
+                    alert("You Won the game!");
+                }
+                // return "You win! " + humanChoice + " beats " + computerChoice;
 
             }
         }
